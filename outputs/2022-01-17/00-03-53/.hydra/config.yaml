@@ -1,0 +1,13 @@
+experiment_model:
+  input_size: 784
+  output_size: 10
+  hidden_layers: 512 256 128
+  dropout_rate: 0.2
+experiment_train:
+  data_path: data/processed/
+  seed: 1234
+  Batch_size: 64
+  lr: 0.005
+  n_epochs: 20
+  model_path: models/fcModel.pt
+  report_path: reports/figures/fcModel.png
