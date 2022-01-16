@@ -1,0 +1,5 @@
+[tool.flake8]
+
+exclude = ["README.rst", "README.md", ".conf.py"]
+format = "colored"
+max_line_length = 120
