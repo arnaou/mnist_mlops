@@ -30,7 +30,7 @@ def main(input_filepath, output_filepath):
     # initialize list
     images, labels = [], []
     # lopp over training files and append them to lists
-    for i in range(5):
+    for i in range(8):
         content = np.load(os.path.join(input_filepath, "train_" + str(i) + ".npz"))
         images.append(content["images"])
         labels.append(content["labels"])
