@@ -1,17 +1,10 @@
 # -*- coding: utf-8 -*-
-import argparse
 import logging
-import os.path
-from pathlib import Path
 
-
+import hydra
 import numpy as np
 import torch
-from dotenv import find_dotenv, load_dotenv
-import hydra
-import logging
 from omegaconf import OmegaConf
-import pdb
 
 log = logging.getLogger(__name__)
 
@@ -20,7 +13,6 @@ log = logging.getLogger(__name__)
 def prediction(config):
     print(f"configuration: \n {OmegaConf.to_yaml(config)}")
     hparams_pred = config.experiment_predict
-    #pdb.set_trace()
 
     log.info("Loading the pretrained model")
     model = torch.load(hparams_pred['model_path'])

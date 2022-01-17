@@ -1,9 +1,8 @@
-from tests import _PATH_MODEL
+
+
 import torch
-import os
-import pdb
+
 from src.models.model import fcModel
-import pytest
 
 
 def test_model():
@@ -16,4 +15,3 @@ def test_model():
 
     if __name__ == "__main__":
         test_model()
-        test_error_on_wrong_shape()
