@@ -14,29 +14,29 @@ from torch import nn
 # hidd_layers = args.hidden_layers
 # dropout_rate = args.dropout_rate
 
-
-class MyAwesomeModel(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.fc1 = nn.Linear(784, 512)
-        self.fc2 = nn.Linear(512, 256)
-        self.fc3 = nn.Linear(256, 128)
-        self.fc4 = nn.Linear(128, 64)
-        self.fc5 = nn.Linear(64, 10)
-
-    def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = F.relu(self.fc3(x))
-        x = F.relu(self.fc4(x))
-        x = self.fc5(x)
-        x = F.log_softmax(x, dim=1)
-
-        return x
+#
+# class MyAwesomeModel(nn.Module):
+#     def __init__(self):
+#         super().__init__()
+#         self.fc1 = nn.Linear(784, 512)
+#         self.fc2 = nn.Linear(512, 256)
+#         self.fc3 = nn.Linear(256, 128)
+#         self.fc4 = nn.Linear(128, 64)
+#         self.fc5 = nn.Linear(64, 10)
+#
+#     def forward(self, x):
+#         x = F.relu(self.fc1(x))
+#         x = F.relu(self.fc2(x))
+#         x = F.relu(self.fc3(x))
+#         x = F.relu(self.fc4(x))
+#         x = self.fc5(x)
+#         x = F.log_softmax(x, dim=1)
+#
+#         return x
 
 
 class fcModel(nn.Module):
-    def __init__(self, input_size, output_size, hidden_layers, drop_p):
+    def __init__(self, input_size=784, output_size=10, hidden_layers=[512, 256, 128], drop_p=0.2):
         """Builds a feedforward network with arbitrary hidden layers.
 
         Arguments
@@ -59,7 +59,8 @@ class fcModel(nn.Module):
 
     def forward(self, x):
         """Forward pass through the network, returns the output logits"""
-
+        if x.shape[1] != 784:
+            raise ValueError('Expected each sample to have shape [1, 784]')
         for each in self.hidden_layers:
             x = F.relu(each(x))
             x = self.dropout(x)
