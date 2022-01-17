@@ -1,6 +1,6 @@
+import torch
 import torch.nn.functional as F
 from torch import nn
-
 
 # parser = argparse.ArgumentParser(description='model hyperparameters')
 # parser.add_argument('--input_size', type=int, default=784)

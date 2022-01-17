@@ -1,22 +1,17 @@
 # -*- coding: utf-8 -*-
-import argparse
+
 import logging
 import os.path
 
-from pathlib import Path
-
+import hydra
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from dotenv import find_dotenv, load_dotenv
+import wandb
 from model import fcModel
+from omegaconf import OmegaConf
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
-import hydra
-import logging
-from omegaconf import OmegaConf
-import pdb
-import wandb
 
 log = logging.getLogger(__name__)
 
@@ -76,7 +71,7 @@ def train(config):
 
     # saving the model
     log.info("Saving the model")
-    #pdb.set_trace()
+
     torch.save(model, hparams_tr["model_path"])
     # plotting the learning curve
     plt.plot(np.arange(hparams_tr["n_epochs"]), np.array(loss_list))
