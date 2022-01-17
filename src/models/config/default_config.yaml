@@ -1,0 +1,5 @@
+defaults:
+  - experiment_model: exp_mod1
+  - experiment_train: exp_tr1
+  - experiment_predict: exp_pred1
+

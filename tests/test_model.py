@@ -1,0 +1,19 @@
+from tests import _PATH_MODEL
+import torch
+import os
+import pdb
+from src.models.model import fcModel
+import pytest
+
+
+def test_model():
+    X = torch.rand([1, 28, 28])
+    X = X.view(X.shape[0], -1)
+    model = fcModel()
+    output = model(X)
+
+    assert output.shape == torch.Size([1, 10]), "output does not have the right size"
+
+    if __name__ == "__main__":
+        test_model()
+        test_error_on_wrong_shape()

@@ -1,0 +1,21 @@
+{
+    "os": "Windows-10-10.0.19044-SP0",
+    "python": "3.8.12",
+    "heartbeatAt": "2022-01-17T01:13:11.535129",
+    "startedAt": "2022-01-17T01:13:08.023046",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "src/models/train_model.py",
+    "git": {
+        "remote": "https://github.com/arnaou/mnist_mlops",
+        "commit": "78544ba4c1bfa9f44b58a9cbfb8daa29bb46dac3"
+    },
+    "email": "arnaou@kt.dtu.dk",
+    "root": "C:/Users/arnaou/OneDrive - Danmarks Tekniske Universitet/02 My courses/mnist_cookiecutter",
+    "host": "KT-PR-ARNAOU-P",
+    "username": "arnaou",
+    "executable": "C:\\Users\\arnaou\\Miniconda3\\envs\\dtu_mlops\\python.exe"
+}
