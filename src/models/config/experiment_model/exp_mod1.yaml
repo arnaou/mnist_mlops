@@ -1,6 +1,4 @@
-# @package _group_
-
 input_size: 784
 output_size: 10
-hidden_layers: 512 256 128
+hidden_layers: [512,256,128]
 dropout_rate: 0.2
