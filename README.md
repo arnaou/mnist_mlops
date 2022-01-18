@@ -1,7 +1,42 @@
-mnist Project (ML-OPS (02476))
+MNIST Project
 ==============================
-Project conducted das part of the course ML-OPS (02476) Jan 2022
+Repository for MNIST project conducted as part of the course ML-OPS (02476) Jan 2022
 by: arnaou@kt.dtu.dk
+
+Installation
+------------
+to install dependencies run the following command
+```
+pip install -r requirements.txt
+```
+Alternatively, dockers can be used as follows:
+```
+docker build -f trainer.dockerfile . -t trainer:latest
+```
+
+Usage
+------------
+**MAKE SURE YOU ARE IN THE MAIN DIRECTORY BEFORE RUNNING ANY OF THE COMMANDS**
+
+To construct mnist data
+```
+python src/data/make_dataset.py --input_filepath data/raw --output_filepath data/processed
+```
+Alternatively
+```
+make data
+```
+To train the model
+```
+python src/models/train_model.py experiment_model=exp_mod1 experiment_train=exp_tr1 
+```
+where *experiment_model* and *experiment_train* refers to the config files containing the parameters for the model and the training procedure respectively.
+
+To perform the prediction
+```
+python src/models/predict_model.py experiment_predict: exp_pred1
+```
+Where *experiment_train* refers to the config file containing the parameters for the prediction.
 
 Project Organization
 ------------
@@ -49,6 +84,8 @@ Project Organization
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
     │
+    ├── exercices          <- Contains folder and exercices done as part of the course.
+    |
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 Usage
