@@ -12,7 +12,8 @@ from model import fcModel
 from omegaconf import OmegaConf
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
-from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
+
+# from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
 
 log = logging.getLogger(__name__)
 
@@ -46,7 +47,7 @@ def train(config):
     # Bookkeeping for loss and steps
     steps = 0
     loss_list = []
-    targets. preds = [], []
+    targets, preds = [], []
     # loop over epochs
     for e in range(hparams_tr["n_epochs"]):
         # loop over batches
@@ -74,11 +75,10 @@ def train(config):
         loss_list.append(running_loss)
         preds = torch.cat(preds, dim=0)
         targets = torch.cat(targets, dim=0)
-
+        print(targets)
+        print(preds)
 
         wandb.log({"loss": running_loss})
-
-
 
     # saving the model
     log.info("Saving the model")
