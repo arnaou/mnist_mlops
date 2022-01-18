@@ -1,0 +1,4 @@
+name: dtu_mlops
+channels:
+  - defaults
+prefix: C:\Users\arnaou\Miniconda3\envs\dtu_mlops\envs\dtu_mlops
